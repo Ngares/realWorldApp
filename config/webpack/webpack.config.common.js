@@ -16,6 +16,10 @@ module.exports = {
 
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
+        preferAbsolute: true,
+        modules: [path.resolve(__dirname, '../..', 'src'), 'node_modules'],
+        mainFiles: ['index'],
+        alias: {},
     },
 
     module: {

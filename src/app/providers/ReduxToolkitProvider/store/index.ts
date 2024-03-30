@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { counterReducer } from './reducers/counterSlice';
+import { registerReducer } from 'features/registration/model/slice/reducers';
 
 const rootReducer = combineReducers({
-    counterReducer,
+    registerReducer,
 });
 
 export const store = configureStore({

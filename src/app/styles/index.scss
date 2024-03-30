@@ -1,0 +1,13 @@
+@import url('fonts.scss');
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    height: 100vh;
+    background: rgba(194, 194, 194, 0.541);
+    font-family: 'Roboto', sans-serif;
+}
+

@@ -5,5 +5,5 @@ module.exports = {
         'lodash/matches-shorthand': ['error', 'never'],
 
         'lodash/matches-prop-shorthand': ['error', 'never'],
-    }
-}
+    },
+};

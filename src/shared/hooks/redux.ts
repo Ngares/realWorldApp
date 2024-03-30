@@ -1,5 +1,5 @@
 import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import type { AppDispatch, RootState } from '../../store';
+import type { AppDispatch, RootState } from 'app/providers/ReduxToolkitProvider/store';
 
 type DispatchFunc = () => AppDispatch;
 
