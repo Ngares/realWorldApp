@@ -1,7 +1,8 @@
 import { z } from 'zod';
+import type { IUserInfo } from 'features/registration/model/models';
 import { registrationRequirements } from './consts';
 
-export const registrationForm = z.object({
+export const registrationForm: z.ZodType<IUserInfo> = z.object({
     username: z
         .string()
         .min(registrationRequirements.usernameLenght.min)

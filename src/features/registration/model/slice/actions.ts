@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import type { IUserInfo } from '../models';
+import type { IUserInfo, IUserRegistrationResponse } from '../models';
 
 export const registerUser = createAsyncThunk(
     'registerUser',
     async (userInfo: IUserInfo) => {
         try {
-            return await axios.post('https://api.realworld.io/api/users', { user: userInfo });
+            return await axios.post<IUserRegistrationResponse>('https://api.realworld.io/api/users', { user: userInfo });
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 throw error;

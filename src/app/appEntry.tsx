@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from 'app';
-import { store } from 'app/providers/ReduxToolkitProvider/store';
+import { store } from './providers/ReduxToolkitProvider/store';
 
 const rootContainer = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(rootContainer);

@@ -24,18 +24,31 @@ export function RegistrationPage (): JSX.Element {
 
     const [isDisabled, setIsDisabled] = useState(true);
 
-    const handleValidationCheck = (): void => {
-        const validationResult = registrationForm.safeParse(userData);
+    const isNameCorrect = (name: string): name is keyof IUserInfo => {
+        return name in userData;
+    };
 
-        if (validationResult.success) {
-            setErrors({
-                formErrors: [],
-                fieldErrors: {},
-            });
-            setIsDisabled(false);
-        } else {
-            setErrors(validationResult.error.flatten());
-            setIsDisabled(true);
+    const handleValidationCheck = (e: React.FocusEvent<HTMLInputElement>): void => {
+        const validationResult = registrationForm.safeParse(userData);
+        const { name } = e.target;
+
+        if (isNameCorrect(name)) {
+            if (validationResult.success) {
+                setErrors({
+                    formErrors: [],
+                    fieldErrors: {},
+                });
+                setIsDisabled(false);
+            } else {
+                setErrors({
+                    ...errors,
+                    fieldErrors: {
+                        ...errors.fieldErrors,
+                        [name]: validationResult.error.flatten().fieldErrors[name],
+                    },
+                });
+                setIsDisabled(true);
+            }
         }
     };
 

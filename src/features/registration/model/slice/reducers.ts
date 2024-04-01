@@ -5,6 +5,6 @@ import { initialState } from '../consts';
 export const registerReducer = createReducer(initialState, (builder) => {
     builder
         .addCase(registerUser.fulfilled, (reducerState, action) => {
-            console.log(action.payload);
+            console.log(action.payload, reducerState);
         });
 });
