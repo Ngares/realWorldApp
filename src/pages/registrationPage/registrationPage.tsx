@@ -28,9 +28,8 @@ export function RegistrationPage (): JSX.Element {
         return name in userData;
     };
 
-    const handleValidationCheck = (e: React.FocusEvent<HTMLInputElement>): void => {
+    const validaton = (name: string): void => {
         const validationResult = registrationForm.safeParse(userData);
-        const { name } = e.target;
 
         if (isNameCorrect(name)) {
             if (validationResult.success) {
@@ -52,7 +51,11 @@ export function RegistrationPage (): JSX.Element {
         }
     };
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>):void => {
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>): void => {
+        validaton(e.target.name)
+    }
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>):void => {
         const { name, value } = e.target;
 
         setUserData({
@@ -74,8 +77,8 @@ export function RegistrationPage (): JSX.Element {
                     className={ styles.input }
                     error={ errors.fieldErrors.username }
                     name="username"
-                    onBlur={ handleValidationCheck }
-                    onChange={ handleInputChange }
+                    onBlur={ handleBlur }
+                    onChange={ handleChange }
                     placeholder="Логин"
                     type="text"
                     value={ userData.username }
@@ -84,8 +87,8 @@ export function RegistrationPage (): JSX.Element {
                     className={ styles.input }
                     error={ errors.fieldErrors.email }
                     name="email"
-                    onBlur={ handleValidationCheck }
-                    onChange={ handleInputChange }
+                    onBlur={ handleBlur }
+                    onChange={ handleChange }
                     placeholder="Электронная почта"
                     type="email"
                     value={ userData.email }
@@ -94,8 +97,8 @@ export function RegistrationPage (): JSX.Element {
                     className={ styles.input }
                     error={ errors.fieldErrors.password }
                     name="password"
-                    onBlur={ handleValidationCheck }
-                    onChange={ handleInputChange }
+                    onBlur={ handleBlur }
+                    onChange={ handleChange }
                     placeholder="Пароль"
                     type="password"
                     value={ userData.password }
