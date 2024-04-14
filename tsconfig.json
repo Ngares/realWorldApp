@@ -7,7 +7,10 @@
         
         "module": "ESNext",
         "moduleResolution": "node",
-        "baseUrl": "./src",
+        "baseUrl": ".",
+        "paths": {
+            "*": ["./src/*"]
+        },
         "resolveJsonModule": true,
 
         "allowJs": false,
@@ -29,5 +32,8 @@
         "noFallthroughCasesInSwitch": true,
 
         "skipLibCheck": true
-    }
+    },
+    "exclude": [
+        "srcOld"
+    ]
 }

@@ -2,18 +2,21 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import App from './Bootstrap';
-import { store } from '../store';
+import { App } from 'Bootstrap/Application';
+import { store } from 'Bootstrap/Store';
 
-const rootContainer = document.getElementById('root') as HTMLDivElement;
-const root = createRoot(rootContainer);
+const rootContainer = document.getElementById('root');
 
-root.render(
-    <React.StrictMode>
-        <BrowserRouter>
+if (rootContainer) {
+    const root = createRoot(rootContainer);
+
+    root.render(
+        <React.StrictMode>
             <Provider store={ store }>
-                <App />
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
             </Provider>
-        </BrowserRouter>
-    </React.StrictMode>,
-);
+        </React.StrictMode>,
+    );
+}
