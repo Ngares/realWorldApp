@@ -32,8 +32,5 @@
         "noFallthroughCasesInSwitch": true,
 
         "skipLibCheck": true
-    },
-    "exclude": [
-        "srcOld"
-    ]
+    }
 }
